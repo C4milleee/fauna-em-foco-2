@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Especie, Artigo
 from .forms import EspecieForm, ArtigoForm
+from django.contrib.auth.decorators import login_required
+
 
 def home(request):
     return render(request, 'home.html')
@@ -23,8 +25,13 @@ def faça_sua_parte(request):
 
 
 def especies(request):
-    return render(request, 'especies.html')
+    especies = Especie.objects.all()
+    context = {
+        'especies': especies,
+    }
+    return render(request, 'especies.html', context)
 
+@login_required
 def listagem(request):
     especies = Especie.objects.all()
     artigos = Artigo.objects.all()
@@ -35,6 +42,7 @@ def listagem(request):
     return render(request, 'listagem_animais.html', context)
     
 
+@login_required
 def cadastrar(request):
     if request.method == 'POST':
         form = EspecieForm(request.POST)
@@ -47,6 +55,7 @@ def cadastrar(request):
     return render(request, 'cadastrar_animal.html', {'form': form})
 
 
+@login_required
 def editar(request, id):
     especie = get_object_or_404(Especie, pk=id)
     if request.method == 'POST':
@@ -60,6 +69,7 @@ def editar(request, id):
     return render(request, 'editar_animal.html', {'form': form})
 
 
+@login_required
 def deletar(request, id):
   especie = get_object_or_404(Especie, pk=id)
   if request.method == 'POST':
@@ -79,6 +89,7 @@ def cadastrar_artigo(request):
     return render(request, 'cadastrar_artigo.html', {'form': form})
 
 
+@login_required
 def editar_artigo(request, id):
     artigo = get_object_or_404(Artigo, pk=id)
     if request.method == 'POST':
@@ -92,6 +103,7 @@ def editar_artigo(request, id):
     return render(request, 'editar_artigo.html', {'form': form})
 
 
+@login_required
 def deletar_artigo(request, id):
   artigo = get_object_or_404(Artigo, pk=id)
   if request.method == 'POST':

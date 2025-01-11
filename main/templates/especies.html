@@ -31,23 +31,25 @@
               <th>Região</th>
             </tr>
           </thead>
+
+          {% for especie in especies %}
           <tbody>
             <tr>
               <td>
                 <img
-                  src="assets/image 15.png"
-                  alt=""
+                  src="{{ especie.imagem.url }}"
                   width="80px"
                   height="80px"
                 />
               </td>
 
               <td>
-                <strong>ttttt</strong>
+                <strong>{{especie.nome_comum}}</strong>
               </td>
-              <td>Sul</td>
+              <td>{{especie.habitat}}</td>
             </tr>
           </tbody>
+          {% endfor %}
         </table>
       </div>
     </div>
