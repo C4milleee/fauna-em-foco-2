@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block content %}
+<div class="content">
+  <h1 class="titulo-tabela">Lista de animais</h1>
+  <a href="{% url 'cadastrar' %}" class="cadastrar">Cadastrar Animal</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome da especie</th>
+        <th>Extinta?</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    {% for especies in especies %}
+    <tbody>
+      <tr>
+        <td>{{ especies.nome_cientifico }}</td>
+        <td>Sim</td>
+        <td>
+          <a href="{% url 'editar' especies.id_especie %}" class="botao-editar"
+            >Editar</a
+          >
+          <a
+            href="{% url 'deletar' especies.id_especie %}"
+            class="botao-excluir"
+            >Excluir</a
+          >
+        </td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+{% comment %}
+<div class="content">
+  <h1 class="titulo-tabela">Lista de Artigos</h1>
+  <a href="{% url 'cadastrar_artigo' %}" class="cadastrar">Cadastrar Artigo</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome do artigos</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    {% for artigos in artigos %}
+    <tbody>
+      <tr>
+        <td>{{ artigos.titulo }}</td>
+        <td>
+          <a
+            href="{% url 'editar_artigo' artigos.id_artigo %}"
+            class="botao-editar"
+            >Editar</a
+          >
+          <a
+            href="{% url 'deletar_artigo' artigos.id_artigo %}"
+            class="botao-excluir"
+            >Excluir</a
+          >
+        </td>
+      </tr>
+    </tbody>
+    {% endfor %} {% endcomment %} {% comment %}
+  </table>
+  {% endcomment %}
+</div>
+{% endblock content %}

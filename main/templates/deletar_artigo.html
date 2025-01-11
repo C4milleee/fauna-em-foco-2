@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block content %}
+  <div class="content">
+    <form action="" method="post" style="width: 100%" class="">
+      {% csrf_token %}
+      <h1>Você tem certeza que deseja apagar esse artigo?</h1>
+      <button type="submit" class="botao-deletar">Deletar</button>
+      <a href="{% url 'listagem' %}" class="botao-voltar">Voltar</a>
+    </form>
+  </div>
+{% endblock content %}
