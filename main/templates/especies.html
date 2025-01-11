@@ -1,0 +1,57 @@
+{% extends "base-home.html" %} {% block content %}
+
+<main>
+  <section style="width: 90%">
+    <div class="content" style="width: 100%">
+      <div>
+        <h1 class="titulo-tabela" style="margin-left: 33px">Espécies</h1>
+        <input type="text" placeholder="Pesquise" />
+      </div>
+
+      <div style="display: flex; gap: 26px; margin-top: 25px">
+        <div class="filters" style="color: #fff">
+          <h1 style="font-size: 24px">Filtros</h1>
+          <p style="font-size: 16px; margin-top: 16px; color: #9cd9b8">
+            Por região
+          </p>
+
+          <ul style="font-size: 12px; margin: 18px">
+            <li><a href="">Centro-oeste</a></li>
+            <li><a href="">Centro-oeste</a></li>
+            <li><a href="">Centro-oeste</a></li>
+            <li><a href="">Centro-oeste</a></li>
+            <li><a href="">Centro-oeste</a></li>
+          </ul>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Imagem</th>
+              <th>Nome</th>
+              <th>Região</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  src="assets/image 15.png"
+                  alt=""
+                  width="80px"
+                  height="80px"
+                />
+              </td>
+
+              <td>
+                <strong>ttttt</strong>
+              </td>
+              <td>Sul</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock content %}

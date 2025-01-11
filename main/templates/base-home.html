@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tienne:wght@400;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <body>
+      <header>
+        <img class="logo"src="{% static 'assets/logo.png' %}" alt="logo - fauna em foco" />
+        <nav>
+          <ul class="list">
+            <a class="nav_button" href="{% url 'home' %}">Página inicial</a>
+            <a class="nav_button" href="{% url 'dados' %}">Dados</a>
+            <a class="nav_button" href="{% url 'contatos' %}">Contatos e denúncia</a>
+            <a class="nav_button" href="{% url 'historia' %}">História</a>
+            <a class="nav_button" href="{% url 'curiosidades' %}">Curiosidades</a>
+            <a class="nav_button" href="{% url 'faça-sua-parte' %}">Faça a sua parte</a>
+            <a class="nav_button" href="{% url 'especies' %}">Especies</a>
+          </ul>
+        </nav>
+      </header>
+      {% block content %} {% endblock content %}
+      <footer style="margin-top: 325px;">
+        <ul>
+          <li class="list_links_footer">
+            <a class="links_footer" href="#">Página inicial</a>
+            <a class="links_footer" href="#">Contato</a>
+            <a class="links_footer" href="#">Home</a>
+          </li>
+        </ul>
+      </footer>
+  </body>
+</html>
