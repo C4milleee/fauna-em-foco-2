@@ -24,10 +24,23 @@ def faça_sua_parte(request):
     return render(request, 'faça-sua-parte.html')
 
 
+@login_required
 def especies(request):
+    habitat_choices = Especie.HABITAT_CHOICES
+    habitat_filter = request.GET.get('habitat')
+    search_query = request.GET.get('search')
+    
     especies = Especie.objects.all()
+    
+    if habitat_filter:
+        especies = especies.filter(habitat=habitat_filter)
+    
+    if search_query:
+        especies = especies.filter(nome_comum__icontains=search_query)
+    
     context = {
         'especies': especies,
+        'habitat_choices': habitat_choices,
     }
     return render(request, 'especies.html', context)
 

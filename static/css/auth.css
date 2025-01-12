@@ -1,0 +1,154 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #064e3b;
+  color: white;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(6, 78, 59, 0.4);
+}
+
+.tree-pine,
+.leaf,
+.bird {
+  position: absolute;
+  fill: #86efac;
+  opacity: 0.5;
+}
+
+.tree-pine {
+  top: 10px;
+  left: 10px;
+  width: 64px;
+  height: 64px;
+}
+
+.leaf {
+  bottom: 10px;
+  right: 10px;
+  width: 64px;
+  height: 64px;
+}
+
+.bird {
+  top: 25%;
+  right: 25%;
+  width: 32px;
+  height: 32px;
+  fill: #fde047;
+  opacity: 0.7;
+}
+
+.card {
+  z-index: 10;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  color: #333;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #064e3b;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #555;
+}
+
+.card-content {
+  display: grid;
+  gap: 16px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-weight: bold;
+}
+
+form {
+  display: grid;
+  gap: 16px;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #064e3b;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #045d37;
+}
+
+.card-footer {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.875rem;
+}
+
+.register-link {
+  color: #064e3b;
+  text-decoration: underline;
+}
+
+.register-link:hover {
+  color: #045d37;
+}
