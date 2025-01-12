@@ -59,7 +59,7 @@ def listagem(request):
 @login_required
 def cadastrar(request):
     if request.method == 'POST':
-        form = EspecieForm(request.POST)
+        form = EspecieForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('listagem')
@@ -73,7 +73,7 @@ def cadastrar(request):
 def editar(request, id):
     especie = get_object_or_404(Especie, pk=id)
     if request.method == 'POST':
-        form = EspecieForm(request.POST, instance=especie)
+        form = EspecieForm(request.POST, request.FILES, instance=especie)
         if form.is_valid():
             form.save()
             return redirect('listagem') 

@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% block content %}
-  <div class="content" style="justify-content: center">
-    <form method="post" class="comments_textarea">
-      {% csrf_token %}
-      <p class="">Insira uma espécie</p>
-      {{ form.as_p }}
-      <button type="submit" class="button" id="submitComment">Enviar</button>
-    </form>
-  </div>
+<div class="content" style="justify-content: center">
+  <form method="post" class="comments_textarea" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p class="">Insira uma espécie</p>
+    {{ form.as_p }}
+    <button type="submit" class="button" id="submitComment">Enviar</button>
+  </form>
+</div>
 {% endblock content %}
