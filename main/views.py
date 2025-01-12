@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Especie, Artigo
 from .forms import EspecieForm, ArtigoForm
 from django.contrib.auth.decorators import login_required
-
+from django.core.paginator import Paginator
 
 def home(request):
     return render(request, 'home.html')
@@ -23,8 +23,6 @@ def curiosidades(request):
 def faça_sua_parte(request):
     return render(request, 'faça-sua-parte.html')
 
-
-@login_required
 def especies(request):
     habitat_choices = Especie.HABITAT_CHOICES
     habitat_filter = request.GET.get('habitat')
@@ -36,14 +34,17 @@ def especies(request):
         especies = especies.filter(habitat=habitat_filter)
     
     if search_query:
-        especies = especies.filter(nome_comum__icontains=search_query)
+        especies = especies.filter(nome_cientifico__icontains=search_query)
+    
+    paginator = Paginator(especies, 2) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     
     context = {
-        'especies': especies,
+        'page_obj': page_obj,
         'habitat_choices': habitat_choices,
     }
     return render(request, 'especies.html', context)
-
 @login_required
 def listagem(request):
     especies = Especie.objects.all()

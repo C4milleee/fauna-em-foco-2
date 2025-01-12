@@ -267,3 +267,27 @@ table {
   background-color: #dc3545;
   border-color: #dc3545;
 }
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination .step-links {
+  display: inline-block;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.pagination .step-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.pagination .step-links .current {
+  color: #333;
+  font-weight: bold;
+  margin-right: 10px;
+}

@@ -1,24 +1,19 @@
 from django.db import models
 
 class Especie(models.Model):
-    NORTE = 'N'
-    NORDESTE = 'NE'
-    SUL = 'S'
-    SUDESTE = 'SE'
-    CENTRO_OESTE = 'CO'
     
     HABITAT_CHOICES = [
-        (NORTE, 'Norte'),
-        (NORDESTE, 'Nordeste'),
-        (SUL, 'Sul'),
-        (SUDESTE, 'Sudeste'),
-        (CENTRO_OESTE, 'Centro-Oeste'),
+        ('Norte', 'Norte'),
+        ('Nordeste', 'Nordeste'),
+        ('Sul', 'Sul'),
+        ('Sudeste', 'Sudeste'),
+        ('Centro-Oeste', 'Centro-Oeste'),
     ]
     
     id_especie = models.AutoField(primary_key=True)
     nome_cientifico = models.CharField(max_length=255)
     nome_comum = models.CharField(max_length=255)
-    habitat = models.CharField(max_length=2, choices=HABITAT_CHOICES)
+    habitat = models.CharField(max_length=255,choices=HABITAT_CHOICES)
     imagem = models.ImageField(upload_to='especies', null=True, blank=True)
     
     def __str__(self):

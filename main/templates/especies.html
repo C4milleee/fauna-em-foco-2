@@ -47,7 +47,7 @@
             </tr>
           </thead>
 
-          {% for especie in especies %}
+          {% for especie in page_obj %}
           <tbody>
             <tr>
               <td>
@@ -57,6 +57,8 @@
                   width="80px"
                   height="80px"
                 />
+                {% else %}
+                <p>Sem Imagem</p>
                 {% endif %}
               </td>
 
@@ -68,6 +70,51 @@
           </tbody>
           {% endfor %}
         </table>
+      </div>
+
+      <div class="pagination" style="text-align: center; margin-top: 20px">
+        <span
+          class="step-links"
+          style="
+            display: inline-block;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+          "
+        >
+          {% if page_obj.has_previous %}
+          <a
+            href="?page=1"
+            style="color: #007bff; text-decoration: none; margin-right: 10px"
+            >&laquo; primeira</a
+          >
+          <a
+            href="?page={{ page_obj.previous_page_number }}"
+            style="color: #007bff; text-decoration: none; margin-right: 10px"
+            >anterior</a
+          >
+          {% endif %}
+
+          <span
+            class="current"
+            style="color: #333; font-weight: bold; margin-right: 10px"
+          >
+            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+          </span>
+
+          {% if page_obj.has_next %}
+          <a
+            href="?page={{ page_obj.next_page_number }}"
+            style="color: #007bff; text-decoration: none; margin-right: 10px"
+            >próxima</a
+          >
+          <a
+            href="?page={{ page_obj.paginator.num_pages }}"
+            style="color: #007bff; text-decoration: none"
+            >última &raquo;</a
+          >
+          {% endif %}
+        </span>
       </div>
     </div>
   </section>
